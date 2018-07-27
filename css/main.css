@@ -1,10 +1,18 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
 
+body, html {
+    height: 100%;
+}
+
 body {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
     display: grid;
-    grid-template-rows: 51px 30%;
+    grid-template-rows: auto 50px;
+    grid-template-columns: 12% auto;
+    grid-template-areas:
+        "sidebar right"
+        "footer footer";
 }
 
 a {
@@ -22,7 +30,7 @@ ul li {
 
 ul li a {
     color: #fff;
-    padding: 15px;;
+    padding: 15px;
 }
 
 #logo {
@@ -64,11 +72,88 @@ section#hero {
 img {
     min-width: 100%;
     background-size: cover;
-    margin 0 auto;
+    margin: 0 auto;
 }
 
 #mountain {
     border-radius: 50%;
     width: 200px;
     height: 200px;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    background: #1c9090;
+    color: #fff;
+    padding: 1em;
+}
+
+.main {
+    grid-area: right;
+    grid-template-rows: 51px fit-content(30%) 40%;   
+    display: grid;
+}
+
+footer {
+    grid-area: footer;
+    background: lightgray;
+}
+
+#features {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    text-align: center;
+}
+
+#features i {
+    font-size: 2em;    
+}
+
+ul#features {    
+    margin: 0;
+    padding: 0;
+}
+
+ul#features li {   
+    background: lightgray;
+    padding: 1em;
+    align-self: start;
+}
+
+
+ul#features li p {
+    color: #4c4c4c;
+}
+
+ul#features li:nth-child(1) {
+    background-color: #e6e6e6;
+}
+
+ul#features li:nth-child(2) {
+    background-color: #d3d3d3;
+    align-self: center;
+}
+ul#features li:nth-child(3) {
+    background-color: #cacaca;
+}
+ul#features li:nth-child(4) {
+    background-color: #e6e6e6;
+    align-self: center;
+}
+ul#features li:nth-child(5) {
+    background-color: #d3d3d3;
+}
+
+section#info {
+    background-color: #f2f2f2;
+    padding: 2em;
+
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    align-items: space-around;
+}
+
+#mountain-vector {
+    width: 200px;
+    align-self: center;
 }
